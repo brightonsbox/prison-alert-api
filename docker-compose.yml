@@ -1,0 +1,54 @@
+version: '3.1'
+services:
+
+  hmpps-auth:
+    image: quay.io/hmpps/hmpps-auth:latest
+    networks:
+      - hmpps
+    container_name: hmpps-auth 
+    ports:
+      - "8081:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DELIUS_ENABLED=false
+
+  prison-api:
+    image: quay.io/hmpps/prison-api:latest
+    networks:
+      - hmpps
+    container_name: prison-api
+    depends_on:
+      - hmpps-auth
+    ports:
+      - "8082:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+    environment:
+      - SPRING_PROFILES_ACTIVE=nomis-hsqldb
+
+  localstack:
+    image: localstack/localstack:0.11.5
+    networks:
+      - hmpps
+    container_name: localstack
+    ports:
+      - "4566-4597:4566-4597"
+      - 8999:8080
+    environment:
+      - SERVICES=${SERVICES-sqs}
+      - DEBUG=${DEBUG- }
+      - DATA_DIR=${DATA_DIR- }
+      - PORT_WEB_UI=${PORT_WEB_UI-8088}
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
+      - AWS_EXECUTION_ENV=True
+      - DEFAULT_REGION=eu-west-2
+      - HOSTNAME_EXTERNAL=localstack
+      - SETUP_FOLDER=/docker-entrypoint-initaws.d/setup
+    volumes:
+      - ./.localstack:/tmp/localstack
+      - $PWD/localstack:/docker-entrypoint-initaws.d
+
+networks:
+  hmpps:

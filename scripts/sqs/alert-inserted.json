@@ -1,0 +1,24 @@
+{
+  "Type": "Notification",
+  "MessageId": "20e13002-d1be-56e7-be8c-66cdd7e23341",
+  "Message": "{\"eventType\":\"ALERT-INSERTED\",\"eventDatetime\":\"2020-02-25T11:24:32.935401\",\"alertCode\":\"XA\",\"bookingId\":\"-1\"}",
+  "Timestamp": "2020-02-25T11:24:32.935401Z",
+  "MessageAttributes": {
+    "eventType": {
+      "Type": "String",
+      "Value": "ALERT_INSERTED"
+    },
+    "id": {
+      "Type": "String",
+      "Value": "cb4645f2-d0c1-4677-806a-8036ed54bf69"
+    },
+    "contentType": {
+      "Type": "String",
+      "Value": "text/plain;charset=UTF-8"
+    },
+    "timestamp": {
+      "Type": "Number.java.lang.Long",
+      "Value": "1582629916147"
+    }
+  }
+}
