@@ -1,0 +1,13 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          prison-alert-api:
+            provider: hmpps-auth
+            client-id: ${prison.alert.api.client.id}
+            client-secret: ${prison.alert.api.client.secret}
+            authorization-grant-type: client_credentials
+        provider:
+          hmpps-auth:
+            token-uri: ${hmpps.auth.base.url}/oauth/token
