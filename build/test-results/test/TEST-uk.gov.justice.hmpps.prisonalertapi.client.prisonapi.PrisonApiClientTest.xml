@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.gov.justice.hmpps.prisonalertapi.client.prisonapi.PrisonApiClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-06T15:22:30" hostname="L0362" time="0.07">
-  <properties/>
-  <testcase name="getAlert()" classname="uk.gov.justice.hmpps.prisonalertapi.client.prisonapi.PrisonApiClientTest" time="0.07"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

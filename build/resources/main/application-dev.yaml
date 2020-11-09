@@ -1,4 +1,0 @@
-hmpps.auth.base.url: http://localhost:8081
-prison.api.base.url: http://localhost:8082
-prison.alert.api.client.id: omicadmin
-prison.alert.api.client.secret: clientsecret
