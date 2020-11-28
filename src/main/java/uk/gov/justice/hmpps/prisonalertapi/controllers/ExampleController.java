@@ -19,6 +19,6 @@ public class ExampleController {
 
     @GetMapping(value = "/alert")
     public String alert() {
-        return prisonApiClient.getAlert(1, 4).toString();
+        return prisonApiClient.getAlert(-1, 4).toString();
     }
 }
